@@ -1,4 +1,4 @@
-# 📄 CV – Dorian Maillard
+# 📄 Resume – Dorian Maillard
 
 ![GitHub Workflow](https://img.shields.io/github/actions/workflow/status/dodoma95/cv/deploy.yml?branch=master)
 ![Node.js](https://img.shields.io/badge/node-20-brightgreen)
