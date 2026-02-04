@@ -35,3 +35,9 @@ Each language has its own section and URL.
 ```bash
 npm install
 npm start
+```
+
+## 🤝 Reuse
+
+You are free to reuse the structure or ideas of this project.
+Please do not reuse personal content.
