@@ -6,25 +6,443 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+    --ifm-color-primary: #2e8555;
+    --ifm-color-primary-dark: #29784c;
+    --ifm-color-primary-darker: #277148;
+    --ifm-color-primary-darkest: #205d3b;
+    --ifm-color-primary-light: #33925d;
+    --ifm-color-primary-lighter: #359962;
+    --ifm-color-primary-lightest: #3cad6e;
+    --ifm-code-font-size: 95%;
+    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+    --ifm-color-primary: #25c2a0;
+    --ifm-color-primary-dark: #21af90;
+    --ifm-color-primary-darker: #1fa588;
+    --ifm-color-primary-darkest: #1a8870;
+    --ifm-color-primary-light: #29d5b0;
+    --ifm-color-primary-lighter: #32d8b4;
+    --ifm-color-primary-lightest: #4fddbf;
+    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* CONTACTS STYLE */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes fixes */
+    gap: 1rem;
+}
+
+.contact-grid .focus-card {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* HERO STYLE */
+.hero {
+    display: block;
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 1.4rem;
+    border-radius: 14px;
+    background: var(--ifm-background-surface-color);
+    border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.hero-main h2 {
+    margin-top: 0;
+    margin-bottom: .4rem;
+    font-size: 1.6rem;
+}
+
+.hero-tagline {
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-bottom: .8rem;
+    opacity: .9;
+}
+
+/* Liste */
+.hero-points {
+    padding-left: 1.2rem;
+    margin: .6rem 0 .8rem;
+    list-style: none;
+}
+
+.hero-points li {
+    position: relative;
+    padding-left: 1.4rem;
+    margin-bottom: .45rem;
+    font-weight: 500;
+}
+
+.hero-points li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--ifm-color-primary);
+    font-weight: bold;
+}
+
+/* focus cards */
+.focus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Focus cards (Domaines d’intervention) et badges de contact */
+.focus-card {
+    padding: 1rem 1.1rem;
+    border-radius: 14px;
+    border: 1px solid var(--ifm-color-emphasis-200);
+    background: var(--ifm-background-surface-color);
+    transition: all .18s ease;
+    min-height: 70px; /* uniformise la hauteur */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.focus-card:hover {
+    border-color: var(--ifm-color-primary);
+    transform: translateY(-2px);
+}
+
+/* Titres dans focus cards (pour Domaines d’intervention) */
+.focus-card strong {
+    display: block;
+    margin-bottom: .35rem;
+}
+
+/* Texte dans focus cards */
+.focus-card p {
+    font-size: .9rem;
+    opacity: .8;
+    margin: 0;
+}
+
+/* Liens dans badges de contact */
+.focus-card a {
+    color: var(--ifm-color-primary);
+    text-decoration: none;
+    margin: 0 .25rem;
+}
+
+.focus-card a:last-child {
+    margin-right: 0;
+}
+
+.focus-card a:hover {
+    text-decoration: underline;
+}
+
+/* PROFIL STYLE */
+.profile-block {
+    padding: 1rem 1.2rem;
+    border-radius: 14px;
+    border: 1px solid var(--ifm-color-emphasis-200);
+    background: var(--ifm-background-surface-color);
+    font-size: .95rem;
+    line-height: 1.5;
+    margin-bottom: 1.8rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.profile-block p {
+    margin: 0;
+}
+
+.profile-points {
+    padding-left: 1.2rem;
+    margin: 0.5rem 0 1rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.profile-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    opacity: 0.85;
+}
+
+.profile-points li::before {
+    content: '';
+}
+
+/* SKILLS STYLE */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.4rem;
+    margin-bottom: 2rem;
+}
+
+.skill-panel {
+    background: var(--ifm-background-surface-color);
+    padding: 1.2rem 1.3rem;
+    border-radius: 14px;
+    border: 1px solid var(--ifm-color-emphasis-200);
+    transition: all .18s ease;
+}
+
+.skill-panel:hover {
+    border-color: var(--ifm-color-primary);
+    transform: translateY(-2px);
+}
+
+.skill-panel h3 {
+    display: flex;
+    align-items: center;
+    gap: .45rem;
+    font-size: 1.05rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    letter-spacing: .2px;
+}
+
+/* Liste de skills */
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+.skill:hover {
+    transform: translateY(-1px);
+    border-color: var(--ifm-color-primary);
+}
+
+/* base skill */
+.skill {
+    --skill-color: var(--ifm-color-primary);
+    font-size: .85rem;
+    padding: .38rem .65rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--skill-color) 20%, transparent);
+    background: color-mix(in srgb, var(--skill-color) 8%, transparent);
+    white-space: nowrap;
+    transition: all .15s ease;
+}
+
+/* fort */
+.skill.strong {
+    background: linear-gradient(
+            135deg,
+            color-mix(in srgb, var(--skill-color) 28%, transparent),
+            color-mix(in srgb, var(--skill-color) 14%, transparent)
+    );
+    border: 1px solid color-mix(in srgb, var(--skill-color) 60%, transparent);
+    font-weight: 600;
+}
+
+/* moyen */
+.skill.medium {
+    background: linear-gradient(
+            135deg,
+            color-mix(in srgb, var(--skill-color) 18%, transparent),
+            color-mix(in srgb, var(--skill-color) 8%, transparent)
+    );
+    border: 1px solid color-mix(in srgb, var(--skill-color) 40%, transparent);
+}
+
+/* notions */
+.skill.light {
+    background: linear-gradient(
+            135deg,
+            color-mix(in srgb, var(--skill-color) 10%, transparent),
+            color-mix(in srgb, var(--skill-color) 4%, transparent)
+    );
+    border: 1px dashed color-mix(in srgb, var(--skill-color) 35%, transparent);
+    opacity: .9;
+}
+
+.skill-legend {
+    font-size: .8rem;
+    opacity: .7;
+    margin-top: .6rem;
+}
+
+/* Expériences */
+.experience-card {
+    border: 1px solid var(--ifm-color-emphasis-200);
+    border-radius: 16px;
+    padding: 1.4rem 1.5rem;
+    margin-bottom: 1.6rem;
+    background: var(--ifm-background-surface-color);
+    position: relative;
+    transition: all .18s ease;
+}
+
+.experience-card:hover {
+    border-color: var(--ifm-color-primary);
+    transform: translateY(-2px);
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-right: 40px;
+}
+
+.experience-date {
+    font-size: .9rem;
+    opacity: .65;
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.impact-list {
+    margin-top: .6rem;
+    padding-left: 0;
+    list-style: none;
+}
+
+.impact-list li {
+    position: relative;
+    padding-left: 1.4rem;
+    margin-bottom: .45rem;
+    font-weight: 500;
+}
+
+.impact-list li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--ifm-color-primary);
+    font-weight: bold;
+}
+
+.stack {
+    margin-top: .8rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+}
+
+.stack span {
+    font-size: .78rem;
+    padding: .25rem .55rem;
+    border-radius: 999px;
+    border: 1px solid var(--ifm-color-emphasis-300);
+    background: color-mix(in srgb, var(--ifm-color-primary) 8%, transparent);
+}
+
+/* Bulle logo */
+.company-bubble {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: white;
+    padding: 6px;
+    border: 1px solid var(--ifm-color-emphasis-300);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    object-fit: contain;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+/* petit effet premium */
+.experience-card:hover .company-bubble {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+}
+
+/* Formation style */
+.education-card {
+    border: 1px solid var(--ifm-color-emphasis-200);
+    border-radius: 16px;
+    padding: 1.4rem 1.5rem;
+    margin-bottom: 1.6rem;
+    background: var(--ifm-background-surface-color);
+    position: relative;
+    transition: all .18s ease;
+}
+
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-right: 40px;
+}
+
+.education-date {
+    font-size: .9rem;
+    opacity: .65;
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.education-card {
+    padding-left: 1.2rem;
+    margin: 0.5rem 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.education-card:hover {
+    border-color: var(--ifm-color-primary);
+    transform: translateY(-2px);
+}
+
+/* petit effet premium */
+.education-card:hover .company-bubble {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+}
+
+/* mobile */
+@media (max-width: 768px) {
+
+    .hero {
+        padding: 1rem 1rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid .focus-card {
+        height: auto;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .skill-panel {
+        padding: 1rem;
+    }
+
+    .skill {
+        font-size: .82rem;
+        padding: .32rem .55rem;
+    }
 }
