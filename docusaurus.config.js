@@ -110,7 +110,7 @@ const config = {
                         items: [
                             {
                                 label: 'Download PDF',
-                                href: '/files/DorianMaillard_CV.pdf', // placer le PDF dans static/files
+                                href: '#', // placer le PDF dans static/files, ex : /files/DorianMaillard_CV.pdf
                             },
                         ],
                     },
