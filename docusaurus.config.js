@@ -80,33 +80,42 @@ const config = {
                 style: 'dark',
                 links: [
                     {
-                        title: 'Community',
+                        title: 'Contact',
                         items: [
                             {
-                                label: 'Stack Overflow',
-                                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                                label: 'Email',
+                                href: 'mailto:dorian.maillard60@gmail.com',
                             },
                             {
-                                label: 'Discord',
-                                href: 'https://discordapp.com/invite/docusaurus',
-                            },
-                            {
-                                label: 'X',
-                                href: 'https://x.com/docusaurus',
+                                label: 'Phone',
+                                href: 'tel:+33625521689',
                             },
                         ],
                     },
                     {
-                        title: 'More',
+                        title: 'Profiles',
                         items: [
                             {
                                 label: 'GitHub',
-                                href: 'https://github.com/facebook/docusaurus',
+                                href: 'https://github.com/Dodoma95/cv',
+                            },
+                            {
+                                label: 'LinkedIn',
+                                href: 'https://www.linkedin.com/in/dorian-maillard/',
+                            }
+                        ],
+                    },
+                    {
+                        title: 'Resume',
+                        items: [
+                            {
+                                label: 'Download PDF',
+                                href: '/files/DorianMaillard_CV.pdf', // placer le PDF dans static/files
                             },
                         ],
                     },
                 ],
-                copyright: `Copyright © ${new Date().getFullYear()} Dorian MAILLARD's resume.`,
+                copyright: `Copyright © ${new Date().getFullYear()} Dorian MAILLARD. All rights reserved.`,
             },
             prism: {
                 theme: prismThemes.github,
