@@ -6,8 +6,8 @@ const sidebars = {
         'index',
         'experience',
         'competences',
-        'projets',
         'formation',
+        'projets',
     ],
 };
 
