@@ -6,7 +6,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
     title: 'Dorian Maillard',
     tagline: 'Développeur Fullstack Java / Spring Boot - ReactJS',
-    favicon: 'img/favicon.ico',
+    favicon: 'img/favicon/cv.png',
 
     // GitHub Pages
     url: 'https://Dodoma95.github.io',
@@ -64,6 +64,10 @@ const config = {
             },
             navbar: {
                 title: 'Dorian Maillard',
+                logo: {
+                    alt: 'Logo CV',
+                    src: 'img/favicon/cv.png',
+                },
                 items: [
                     {
                         type: 'localeDropdown',
@@ -110,7 +114,7 @@ const config = {
                         items: [
                             {
                                 label: 'Download PDF',
-                                href: '#', // placer le PDF dans static/files, ex : /files/DorianMaillard_CV.pdf
+                                href: 'pathname:///files/dorian_cv.pdf',
                             },
                         ],
                     },
