@@ -1,0 +1,95 @@
+---
+title: Projects
+---
+
+## Roomify
+
+Workspace rental marketplace: meeting rooms, coworking spaces, studios.
+A personal full-stack project designed to explore hexagonal architecture, dual REST/GraphQL APIs, and the BFF pattern on the frontend.
+
+<div className="projects-grid">
+
+    <div className="project-card">
+
+        <div className="project-card-header">
+            <h3>roomify-api</h3>
+            <div className="project-links">
+                <a
+                    href="https://github.com/Dodoma95/roomify-api"
+                    className="project-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub ↗
+                </a>
+            </div>
+        </div>
+
+        <p>
+            Marketplace backend: owners create and manage listings (PENDING → APPROVED workflow),
+            users discover and book spaces, admins oversee and validate listings.
+        </p>
+
+        <ul className="project-decisions">
+            <li>Hexagonal architecture — pure domain with zero framework dependency</li>
+            <li>Dual API: REST documented via Swagger UI + GraphQL with GraphiQL and Voyager</li>
+            <li>JWT authentication with email verification and 4 role levels (USER, OWNER, ADMIN, SUPER_ADMIN)</li>
+            <li>Resilience4j: rate limiting and retries on critical operations</li>
+            <li>JUnit 5 + Testcontainers tests on real PostgreSQL (no DB mocking)</li>
+            <li>CI/CD GitHub Actions + SonarCloud quality analysis + JaCoCo coverage</li>
+        </ul>
+
+        <div className="stack">
+            <span>Java 21</span>
+            <span>Spring Boot</span>
+            <span>PostgreSQL</span>
+            <span>Flyway</span>
+            <span>MapStruct</span>
+            <span>Resilience4j</span>
+            <span>Testcontainers</span>
+            <span>GitHub Actions</span>
+        </div>
+
+    </div>
+
+    <div className="project-card">
+
+        <div className="project-card-header">
+            <h3>roomify</h3>
+            <div className="project-links">
+                <a
+                    href="https://github.com/Dodoma95/roomify"
+                    className="project-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub ↗
+                </a>
+            </div>
+        </div>
+
+        <p>
+            Frontend consuming the Roomify API. Three user profiles: visitor/user (search and booking),
+            owner (listing and unavailability management), administrator (validation and global oversight).
+        </p>
+
+        <ul className="project-decisions">
+            <li>BFF pattern: all requests transit through Next.js <code>app/api/</code> which injects the JWT — the token never leaves the browser</li>
+            <li>Zustand for global state, SWR for fetching with automatic revalidation</li>
+            <li>shadcn/ui + Tailwind v4 for an accessible, consistent UI</li>
+            <li>Framer Motion for page transitions and animations</li>
+        </ul>
+
+        <div className="stack">
+            <span>Next.js 16</span>
+            <span>TypeScript</span>
+            <span>Tailwind v4</span>
+            <span>shadcn/ui</span>
+            <span>Zustand</span>
+            <span>SWR</span>
+            <span>Framer Motion</span>
+        </div>
+
+    </div>
+
+</div>
