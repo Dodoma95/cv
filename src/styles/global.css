@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+/* ─── Tokens light (défaut — fond crème) ─── */
+:root {
+  --bg:         #fafaf7;
+  --bg-card:    #f5f5f0;
+  --bg-subtle:  #f0f0eb;
+  --border:     rgba(28, 25, 23, 0.1);
+  --accent:     #4338ca;
+  --accent-2:   rgba(67, 56, 202, 0.1);
+  --accent-3:   rgba(67, 56, 202, 0.22);
+  --text:       #1c1917;
+  --text-2:     #57534e;
+  --text-3:     #a8a29e;
+  --nav-bg:     rgba(250, 250, 247, 0.88);
+}
+
+/* ─── Tokens dark ─── */
+[data-theme="dark"] {
+  --bg:         #0a0a12;
+  --bg-card:    #111120;
+  --bg-subtle:  #16162a;
+  --border:     rgba(124, 140, 248, 0.12);
+  --accent:     #818cf8;
+  --accent-2:   rgba(129, 140, 248, 0.1);
+  --accent-3:   rgba(129, 140, 248, 0.22);
+  --text:       #e2e8f0;
+  --text-2:     #94a3b8;
+  --text-3:     #475569;
+  --nav-bg:     rgba(10, 10, 18, 0.88);
+}
+
+/* ─── Base ─── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* ─── Utilitaires réutilisables ─── */
+.eyebrow {
+  font-size: 0.68rem;
+  font-family: ui-monospace, 'Cascadia Code', monospace;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 1.3rem;
+}
+
+.pill {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-family: ui-monospace, monospace;
+  padding: 0.18rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--accent-3);
+  background: var(--accent-2);
+  color: var(--accent);
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: border-color 0.15s ease;
+}
+
+.card:hover {
+  border-color: var(--accent-3);
+}
+
+/* ─── Timeline ─── */
+.timeline-item {
+  position: relative;
+  padding-left: 1.4rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 10px;
+  bottom: -1rem;
+  width: 1px;
+  background: var(--border);
+}
+
+.timeline-item:last-child::before {
+  display: none;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-2);
+}
+
+/* ─── Badges compétences ─── */
+.badge {
+  font-size: 0.7rem;
+  font-family: ui-monospace, monospace;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.badge-strong {
+  background: var(--accent-3);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.badge-medium {
+  background: var(--accent-2);
+  border: 1px solid var(--accent-3);
+  color: var(--accent);
+}
+
+.badge-light {
+  background: transparent;
+  border: 1px dashed var(--border);
+  color: var(--text-3);
+}
+
+/* ─── Sections ─── */
+.section {
+  padding: 2.8rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ─── Mobile ─── */
+@media (max-width: 640px) {
+  .domains-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .skills-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

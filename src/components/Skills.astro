@@ -1,0 +1,67 @@
+---
+import type { Translation } from '../i18n/types';
+
+interface Props {
+  t: Translation;
+}
+
+const { t } = Astro.props;
+
+const levelClass: Record<string, string> = {
+  strong: 'badge badge-strong',
+  medium: 'badge badge-medium',
+  light:  'badge badge-light',
+};
+---
+
+<section class="section" id="competences">
+  <p class="eyebrow">{t.skillsTitle}</p>
+
+  <div class="skills-grid">
+    {t.skillGroups.map((group) => (
+      <div class="card skill-group">
+        <h4>{group.title}</h4>
+        <div class="badges">
+          {group.badges.map((b) => (
+            <span class={levelClass[b.level]}>{b.label}</span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <p class="legend">{t.skillsLegend}</p>
+</section>
+
+<style>
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.9rem;
+  }
+
+  .skill-group {
+    padding: 0.85rem 1rem;
+  }
+
+  .skill-group h4 {
+    color: var(--text-3);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.55rem;
+  }
+
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+
+  .legend {
+    font-size: 0.7rem;
+    color: var(--text-3);
+    margin-top: 0.8rem;
+    font-family: ui-monospace, monospace;
+  }
+</style>

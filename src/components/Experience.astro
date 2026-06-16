@@ -1,0 +1,115 @@
+---
+import type { Translation } from '../i18n/types';
+
+interface Props {
+  t: Translation;
+}
+
+const { t } = Astro.props;
+---
+
+<section class="section" id="experience">
+  <p class="eyebrow">{t.experienceTitle}</p>
+
+  <div class="timeline">
+    {t.experiences.map((exp) => (
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">{exp.title}</div>
+            <div class="exp-company">{exp.company}</div>
+          </div>
+          <div class="exp-date">{exp.period}</div>
+        </div>
+        <p class="exp-desc">{exp.description}</p>
+        <ul class="exp-bullets">
+          {exp.bullets.map((b) => <li>{b}</li>)}
+        </ul>
+        <div class="stack-pills">
+          {exp.stack.map((s) => <span class="pill">{s}</span>)}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .timeline {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .timeline-item {
+    padding-bottom: 2rem;
+  }
+
+  .timeline-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.35rem;
+  }
+
+  .exp-title {
+    color: var(--text);
+    font-size: 0.88rem;
+    font-weight: 700;
+  }
+
+  .exp-company {
+    color: var(--accent);
+    font-size: 0.8rem;
+    margin-top: 0.05rem;
+  }
+
+  .exp-date {
+    color: var(--text-3);
+    font-size: 0.72rem;
+    font-family: ui-monospace, monospace;
+    white-space: nowrap;
+  }
+
+  .exp-desc {
+    color: var(--text-2);
+    font-size: 0.8rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.22rem;
+  }
+
+  .exp-bullets li {
+    color: var(--text-2);
+    font-size: 0.77rem;
+    padding-left: 0.9rem;
+    position: relative;
+  }
+
+  .exp-bullets li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.62rem;
+    top: 2px;
+  }
+
+  .stack-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-top: 0.55rem;
+  }
+</style>
