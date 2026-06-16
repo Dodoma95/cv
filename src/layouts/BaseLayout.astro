@@ -9,11 +9,13 @@ interface Props {
 
 const {
   lang,
-  title = 'Dorian Maillard — Backend Engineer',
-  description = 'CV en ligne de Dorian Maillard — Backend Engineer Java / Spring Boot, Île-de-France.',
+  title = 'Dorian Maillard — Backend Engineer Java · Spring Boot',
+  description = "8 ans d'expérience backend Java / Spring Boot — APIs REST & GraphQL, modernisation SI, architecture hexagonale. Basé en Île-de-France.",
 } = Astro.props;
 
 const canonicalUrl = Astro.url.href;
+const ogImage = new URL('/cv/img/social-card.png', Astro.site).href;
+const ogLocale = lang === 'fr' ? 'fr_FR' : 'en_US';
 ---
 
 <!doctype html>
@@ -25,11 +27,16 @@ const canonicalUrl = Astro.url.href;
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
 
-    <!-- Open Graph -->
+    <!-- Open Graph / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content={ogLocale} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/cv/img/social-card.png" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Dorian Maillard — Backend Engineer" />
 
     <!-- Favicon -->
     <link rel="icon" href="/cv/img/favicon/cv.png" type="image/png" />
