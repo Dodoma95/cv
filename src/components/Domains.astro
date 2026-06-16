@@ -1,0 +1,46 @@
+---
+import type { Translation } from '../i18n/types';
+
+interface Props {
+  t: Translation;
+}
+
+const { t } = Astro.props;
+---
+
+<section class="section">
+  <p class="eyebrow">{t.domainsTitle}</p>
+  <div class="domains-grid">
+    {t.domains.map((domain) => (
+      <div class="card domain-card">
+        <strong>{domain.title}</strong>
+        <p>{domain.description}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .domains-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.65rem;
+  }
+
+  .domain-card {
+    padding: 0.75rem 0.9rem;
+  }
+
+  .domain-card strong {
+    display: block;
+    color: var(--text);
+    font-size: 0.82rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .domain-card p {
+    color: var(--text-2);
+    font-size: 0.76rem;
+    margin: 0;
+  }
+</style>

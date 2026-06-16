@@ -1,0 +1,48 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  lang: string;
+  title?: string;
+  description?: string;
+}
+
+const {
+  lang,
+  title = 'Dorian Maillard — Backend Engineer',
+  description = 'CV en ligne de Dorian Maillard — Backend Engineer Java / Spring Boot, Île-de-France.',
+} = Astro.props;
+
+const canonicalUrl = Astro.url.href;
+---
+
+<!doctype html>
+<html lang={lang} data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/cv/img/social-card.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/cv/img/favicon/cv.png" type="image/png" />
+
+    <!-- Anti-flash : applique le thème sauvegardé avant le premier rendu -->
+    <script is:inline>
+      (function () {
+        const saved = localStorage.getItem('theme');
+        document.documentElement.setAttribute('data-theme', saved || 'light');
+      })();
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

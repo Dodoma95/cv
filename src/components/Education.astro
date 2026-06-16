@@ -1,0 +1,58 @@
+---
+import type { Translation } from '../i18n/types';
+
+interface Props {
+  t: Translation;
+}
+
+const { t } = Astro.props;
+---
+
+<section class="section" id="formation">
+  <p class="eyebrow">{t.educationTitle}</p>
+
+  <div class="education">
+    {t.educationItems.map((item) => (
+      <div class="timeline-item edu-item">
+        <div class="timeline-dot"></div>
+        <div class="edu-title">{item.degree}</div>
+        <div class="edu-school">{item.school}</div>
+        <div class="edu-date">{item.period}</div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .education {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .edu-item {
+    padding-bottom: 1.4rem;
+  }
+
+  .edu-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .edu-title {
+    color: var(--text);
+    font-size: 0.86rem;
+    font-weight: 700;
+  }
+
+  .edu-school {
+    color: var(--accent);
+    font-size: 0.78rem;
+    margin-top: 0.1rem;
+  }
+
+  .edu-date {
+    color: var(--text-3);
+    font-size: 0.71rem;
+    font-family: ui-monospace, monospace;
+    margin-top: 0.1rem;
+  }
+</style>

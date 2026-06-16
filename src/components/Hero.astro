@@ -1,0 +1,79 @@
+---
+import type { Translation } from '../i18n/types';
+
+interface Props {
+  t: Translation;
+}
+
+const { t } = Astro.props;
+const { hero } = t;
+---
+
+<div id="profil" class="hero">
+  <p class="eyebrow">{hero.eyebrow}</p>
+  <h1>Dorian Maillard</h1>
+  <p class="hero-role">{hero.role}</p>
+  <p class="hero-tagline">{hero.tagline}</p>
+
+  <div class="contacts">
+    <a href={`mailto:${hero.contacts.email}`} class="contact-pill">{hero.contacts.email}</a>
+    <a href="tel:+33625521689" class="contact-pill">{hero.contacts.phone}</a>
+    <a href="https://github.com/Dodoma95" target="_blank" rel="noopener noreferrer" class="contact-pill">{hero.contacts.github}</a>
+    <a href="https://www.linkedin.com/in/dorian-maillard/" target="_blank" rel="noopener noreferrer" class="contact-pill">{hero.contacts.linkedin}</a>
+    <a href="/cv/files/dorian_cv.pdf" download class="contact-pill">{hero.contacts.pdf}</a>
+  </div>
+</div>
+
+<style>
+  .hero {
+    padding: 4rem 0 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.045em;
+    line-height: 1.05;
+    margin-top: 0.2rem;
+  }
+
+  .hero-role {
+    font-size: 0.95rem;
+    color: var(--accent);
+    font-family: ui-monospace, monospace;
+    margin-top: 0.35rem;
+  }
+
+  .hero-tagline {
+    margin-top: 0.9rem;
+    color: var(--text-2);
+    font-size: 0.9rem;
+    max-width: 500px;
+    line-height: 1.65;
+  }
+
+  .contacts {
+    margin-top: 1.4rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-pill {
+    font-size: 0.76rem;
+    padding: 0.28rem 0.7rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-2);
+    text-decoration: none;
+    background: var(--bg-card);
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .contact-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+</style>
