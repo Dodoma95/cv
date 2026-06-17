@@ -21,10 +21,33 @@ My personal CV — versioned, bilingual, deployed on GitHub Pages.
 
 ```bash
 npm install
-npm run dev
+npm run dev     # dev server — hot reload, no PDF generation
+npm run preview # serves the built site — use this to test PDF links
 ```
 
-Opens at `http://localhost:4321/cv/fr/`
+- **`npm run dev`** — fast dev server with hot reload. PDFs are not generated; the download link returns 404.
+- **`npm run preview`** — serves the output of `npm run build`. PDFs exist and links work. Run `npm run build` first.
+
+## Build & PDF generation
+
+```bash
+npm run build
+```
+
+Runs `astro build` then generates two PDFs via Puppeteer:
+
+```
+✓ dist/files/dorian_cv_fr.pdf
+✓ dist/files/dorian_cv_en.pdf
+```
+
+To regenerate PDFs only (requires `dist/` to exist):
+
+```bash
+npm run build:pdf
+```
+
+The print pages used as PDF source are at `/cv/print/fr/` and `/cv/print/en/` — not linked from the nav but accessible in the built site.
 
 ## Languages
 
