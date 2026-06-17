@@ -1,0 +1,97 @@
+---
+import PrintLayout from '../../layouts/PrintLayout.astro';
+import { en } from '../../i18n/en';
+
+const t = en;
+---
+
+<PrintLayout title="Dorian Maillard — Resume" lang="en">
+  <header class="cv-header">
+    <h1>Dorian Maillard</h1>
+    <p class="cv-role">{t.hero.role}</p>
+    <div class="cv-contacts">
+      <a href={`mailto:${t.hero.contacts.email}`}>{t.hero.contacts.email}</a>
+      <span>{t.hero.contacts.phone}</span>
+      <a href="https://github.com/Dodoma95">github.com/Dodoma95</a>
+      <a href="https://www.linkedin.com/in/dorian-maillard/">linkedin.com/in/dorian-maillard</a>
+    </div>
+  </header>
+
+  <section>
+    <h2 class="section-title">{t.domainsTitle.replace('//', '').trim()}</h2>
+    <div class="domains-grid">
+      {t.domains.map((d) => (
+        <div class="domain-item">
+          <strong>{d.title}</strong> — {d.description}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">{t.experienceTitle.replace('//', '').trim()}</h2>
+    {t.experiences.map((exp) => (
+      <div class="experience-item">
+        <div class="exp-header">
+          <span class="exp-title">{exp.title} · {exp.company}</span>
+          <span class="exp-period">{exp.period}</span>
+        </div>
+        <p class="exp-desc">{exp.description}</p>
+        <ul class="exp-bullets">
+          {exp.bullets.map((b) => <li>{b}</li>)}
+        </ul>
+        <div class="badges">
+          {exp.stack.map((s) => <span class="badge badge-strong">{s}</span>)}
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <section>
+    <h2 class="section-title">{t.skillsTitle.replace('//', '').trim()}</h2>
+    <div class="skill-groups">
+      {t.skillGroups.map((group) => (
+        <div>
+          <p class="skill-group-title">{group.title}</p>
+          <div class="badges">
+            {group.badges.map((b) => (
+              <span class={`badge badge-${b.level}`}>{b.label}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">{t.projectsTitle.replace('//', '').trim()}</h2>
+    {t.projects.map((p) => (
+      <div class="project-item">
+        <div class="project-header">
+          <span class="project-name">{p.name}</span>
+          <a href={p.githubUrl} class="project-url">{p.githubUrl}</a>
+        </div>
+        <p class="exp-desc">{p.description}</p>
+        <ul class="exp-bullets">
+          {p.bullets.map((b) => <li>{b}</li>)}
+        </ul>
+        <div class="badges">
+          {p.stack.map((s) => <span class="badge badge-strong">{s}</span>)}
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <section>
+    <h2 class="section-title">{t.educationTitle.replace('//', '').trim()}</h2>
+    {t.educationItems.map((item) => (
+      <div class="education-item">
+        <div class="edu-left">
+          <span class="edu-degree">{item.degree}</span>
+          <span class="edu-school">{item.school}</span>
+        </div>
+        <span class="edu-period">{item.period}</span>
+      </div>
+    ))}
+  </section>
+</PrintLayout>

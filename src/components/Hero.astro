@@ -20,7 +20,7 @@ const { hero } = t;
     <a href="tel:+33625521689" class="contact-pill">{hero.contacts.phone}</a>
     <a href="https://github.com/Dodoma95" target="_blank" rel="noopener noreferrer" class="contact-pill">{hero.contacts.github}</a>
     <a href="https://www.linkedin.com/in/dorian-maillard/" target="_blank" rel="noopener noreferrer" class="contact-pill">{hero.contacts.linkedin}</a>
-    <a href="/cv/files/dorian_cv.pdf" download class="contact-pill">{hero.contacts.pdf}</a>
+    <a href={`/cv/files/dorian_cv_${t.lang}.pdf`} download class="contact-pill">{hero.contacts.pdf}</a>
   </div>
 </div>
 
