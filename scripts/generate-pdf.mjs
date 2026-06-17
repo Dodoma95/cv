@@ -49,8 +49,11 @@ async function main() {
 
   const { server, port } = await startServer();
   console.log(`Static server on http://localhost:${port}`);
-
-  const browser = await puppeteer.launch({ headless: true });
+  
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  });
 
   try {
     for (const lang of ['fr', 'en']) {
