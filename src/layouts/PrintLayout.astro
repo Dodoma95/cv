@@ -1,0 +1,283 @@
+---
+interface Props {
+  title?: string;
+  lang?: string;
+}
+const { title = 'Dorian Maillard — CV', lang = 'fr' } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title}</title>
+    <style is:global>
+      @page {
+        size: A4;
+        margin: 15mm 20mm;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-size: 10pt;
+        color: #111;
+        background: #fff;
+        line-height: 1.5;
+      }
+
+      /* Screen preview: keep content within A4 content width */
+      .cv-page {
+        max-width: 642px;
+        margin: 0 auto;
+      }
+
+      /* ── Header ── */
+      .cv-header {
+        border-bottom: 3px solid #16a34a;
+        padding-bottom: 8mm;
+        margin-bottom: 7mm;
+      }
+
+      .cv-header h1 {
+        font-size: 22pt;
+        font-weight: 900;
+        letter-spacing: -0.04em;
+        line-height: 1;
+        color: #111;
+      }
+
+      .cv-role {
+        font-size: 8.5pt;
+        color: #16a34a;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+        font-weight: 700;
+        margin-top: 4pt;
+      }
+
+      .cv-contacts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4pt;
+        margin-top: 7pt;
+      }
+
+      .cv-contacts a,
+      .cv-contacts span {
+        font-size: 7.5pt;
+        color: #444;
+        border: 1px solid #d1d5db;
+        padding: 2pt 7pt;
+        border-radius: 3pt;
+        text-decoration: none;
+        background: #f9fafb;
+      }
+
+      /* ── Section title ── */
+      .section-title {
+        font-size: 7.5pt;
+        font-weight: 800;
+        color: #16a34a;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 5pt;
+        padding-bottom: 3pt;
+        border-bottom: 1.5px solid #bbf7d0;
+      }
+
+      section {
+        margin-bottom: 7mm;
+      }
+
+      /* ── Domains ── */
+      .domains-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5pt 20pt;
+      }
+
+      .domain-item {
+        font-size: 8.5pt;
+        color: #444;
+        line-height: 1.4;
+      }
+
+      .domain-item strong {
+        color: #111;
+        font-weight: 700;
+      }
+
+      /* ── Experience ── */
+      .experience-item {
+        margin-bottom: 6mm;
+        page-break-inside: avoid;
+      }
+
+      .exp-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 8pt;
+      }
+
+      .exp-title {
+        font-weight: 700;
+        font-size: 9.5pt;
+        color: #111;
+      }
+
+      .exp-company {
+        font-weight: 400;
+        color: #555;
+      }
+
+      .exp-period {
+        font-size: 7.5pt;
+        color: #888;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .exp-desc {
+        font-size: 8pt;
+        color: #555;
+        margin-top: 2pt;
+        font-style: italic;
+      }
+
+      .exp-bullets {
+        margin: 4pt 0 4pt 12pt;
+      }
+
+      .exp-bullets li {
+        font-size: 8pt;
+        color: #333;
+        margin-bottom: 2pt;
+        line-height: 1.4;
+      }
+
+      /* ── Badges ── */
+      .badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3pt;
+        margin-top: 5pt;
+      }
+
+      .badge {
+        padding: 1.5pt 5pt;
+        border-radius: 3pt;
+        font-size: 7pt;
+        font-weight: 500;
+      }
+
+      .badge-strong {
+        background: #dcfce7;
+        color: #166534;
+        font-weight: 700;
+        border: 1px solid #bbf7d0;
+      }
+
+      .badge-medium {
+        background: #f0fdf4;
+        color: #4b5563;
+        border: 1px solid #d1fae5;
+      }
+
+      .badge-light {
+        background: #f9fafb;
+        color: #9ca3af;
+        border: 1px solid #e5e7eb;
+      }
+
+      /* ── Skills ── */
+      .skill-groups {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6pt 24pt;
+      }
+
+      .skill-group-title {
+        font-size: 7.5pt;
+        font-weight: 700;
+        color: #111;
+        margin-bottom: 4pt;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      /* ── Projects ── */
+      .project-item {
+        margin-bottom: 5mm;
+        page-break-inside: avoid;
+      }
+
+      .project-header {
+        display: flex;
+        align-items: baseline;
+        gap: 7pt;
+        flex-wrap: wrap;
+      }
+
+      .project-name {
+        font-weight: 700;
+        font-size: 9.5pt;
+        color: #111;
+      }
+
+      .project-url {
+        font-size: 7pt;
+        color: #16a34a;
+        text-decoration: none;
+        font-family: ui-monospace, monospace;
+      }
+
+      /* ── Education ── */
+      .education-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 4mm;
+        gap: 8pt;
+      }
+
+      .edu-left {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .edu-degree {
+        font-weight: 700;
+        font-size: 9pt;
+        color: #111;
+      }
+
+      .edu-school {
+        font-size: 7.5pt;
+        color: #666;
+        margin-top: 1pt;
+      }
+
+      .edu-period {
+        font-size: 7.5pt;
+        color: #888;
+        white-space: nowrap;
+        flex-shrink: 0;
+        margin-top: 1pt;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cv-page">
+      <slot />
+    </div>
+  </body>
+</html>
